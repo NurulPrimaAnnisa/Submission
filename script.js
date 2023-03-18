@@ -189,37 +189,37 @@ function undoTaskFromCompleted(bookId) {
 }
 
 
-// function saveData() {
-//     if (isStorageExist()) {
-//         const parsed = JSON.stringify(books);
-//         localStorage.setItem(STORAGE_KEY, parsed);
-//         document.dispatchEvent(new Event(RENDER_EVENT));
-//     }
-// }
+function saveData() {
+    if (isStorageExist()) {
+        const parsed = JSON.stringify(books);
+        localStorage.setItem(STORAGE_KEY, parsed);
+        document.dispatchEvent(new Event(RENDER_EVENT));
+    }
+}
 
-// const SAVED_EVENT = 'saved-books';
-// const STORAGE_KEY = 'BOOKS_APPS';
+const SAVED_EVENT = 'saved-books';
+const STORAGE_KEY = 'BOOKS_APPS';
 
-// function isStorageExist() {
-//     if (typeof (Storage) === undefined) {
-//         alert('Browser Kamu Tidak Mendukung Local Storage');
-//         return false;
-//     }
-//     return true;
-// }
+function isStorageExist() {
+    if (typeof (Storage) === undefined) {
+        alert('Browser Kamu Tidak Mendukung Local Storage');
+        return false;
+    }
+    return true;
+}
 
-// document.addEventListener(SAVED_EVENT, function() {
-//     console.log(localStorage.getItem(STORAGE_KEY));
-// });
+document.addEventListener(SAVED_EVENT, function() {
+    console.log(localStorage.getItem(STORAGE_KEY));
+});
 
-// function loadDataFromStorage() {
-//     const serializeData = localStorage.getItem(STORAGE_KEY);
-//     let data = JSON.parse(serializeData);
+function loadDataFromStorage() {
+    const serializeData = localStorage.getItem(STORAGE_KEY);
+    let data = JSON.parse(serializeData);
 
-//     if (data !=null) {
-//         for (const book of data) {
-//             books.push(book);
-//         }
-//     }
-//     document.dispatchEvent(new Event(RENDER_EVENT));
-// }
+    if (data !=null) {
+        for (const book of data) {
+            books.push(book);
+        }
+    }
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
